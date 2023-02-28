@@ -1,24 +1,27 @@
 <?php
 
-use rudhro\Fontend\Fontend;
-
 include_once("../vendor/autoload.php");
-$fontend = new Fontend;
-$result = $fontend->topproduct();
-print_r($result);
+use rudhro\Allfontend\Allfontend;
+
+$allfontend = new Allfontend;
+$topproducts = $allfontend->topproduct();
+print_r($topproducts);
 
 ?>
 
 <section>
   <div class="container mt-4">
     <div class="">
-      <h2 class="fs-3">Recently Sold Product</h2>
+      <h3 class="fs-3" style="border-bottom: 4px solid tomato; width:170px;">Top Product</h3>
     </div>
     <div class="row">
+    <?php 
+    foreach($topproducts as $topproduct){
+    ?>
       <div class="col-lg-2 col-md-2 col-sm-2">
         <div class="card">
           <div class="card-body text-center">
-            <img src="../public/assets/fontend/img/book7.jpg" alt="" srcset="">
+            <img src="<?php echo "http://localhost:85/project/public/assets/admin/img/topproduct/" . $producut['img'];?>" alt="" height="200" while="100">
             <div class="">
               <p class="">Lorem ipsum dolor</p>
               <a href="" class="text-decoration-none">Price : $25</a>
@@ -27,66 +30,11 @@ print_r($result);
           </div>
         </div>
       </div>
-      <div class="col-lg-2 col-md-2 col-sm-2">
-        <div class="card">
-          <div class="card-body text-center">
-            <img src="../public/assets/fontend/img/book8.jpg" alt="" srcset="">
-            <div>
-              <p class="">Lorem ipsum dolor</p>
-              <a href="" class="text-decoration-none">Price : $25</a>
-              <a href="" class="btn btn-outline-warning">View Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-2">
-        <div class="card text-center">
-          <div class="card-body">
-            <img src="../public/assets/fontend/img/book6.jpg" alt="" srcset="">
-            <div>
-              <p class="card-text">Lorem ipsum dolor</p>
-              <a href="" class="text-decoration-none">Price : $25</a>
-              <a href="" class="btn btn-outline-warning">View Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-2">
-        <div class="card">
-          <div class="card-body text-center">
-            <img src="../public/assets/fontend/img/book8.jpg" alt="" srcset="">
-            <div>
-              <p class="card-text">Lorem ipsum dolor</p>
-              <a href="" class="text-decoration-none">Price : $25</a>
-              <a href="" class="btn btn-outline-warning">View Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-2">
-        <div class="card">
-          <div class="card-body text-center">
-            <img src="../public/assets/fontend/img/book6.jpg" alt="" srcset="">
-            <div>
-              <p class="card-text">Lorem ipsum dolor</p>
-              <a href="" class="text-decoration-none">Price : $25</a>
-              <a href="" class="btn btn-outline-warning">View Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-2">
-        <div class="card">
-          <div class="card-body text-center">
-            <img src="../public/assets/fontend/img/book7.jpg" alt="" srcset="">
-            <div>
-              <p class="card-text">Lorem ipsum dolor</p>
-              <a href="" class="text-decoration-none">Price : $25</a>
-              <a href="" class="btn btn-outline-warning">View Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php }?>
+      
+      
+     
+      
     </div>
 
   </div>

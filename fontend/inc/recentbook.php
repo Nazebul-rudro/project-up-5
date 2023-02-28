@@ -1,8 +1,8 @@
 <?php
 include_once("../vendor/autoload.php");
-use rudhro\Fontend\Fontend;
+use rudhro\Allfontend\Allfontend;
 
-$fontend = new Fontend;
+$fontend = new Allfontend;
 $categories = $fontend->recentbook();
 
 ?>

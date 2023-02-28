@@ -1,68 +1,13 @@
 <?php
-$weebpathslider = "http://localhost:85/project/public/assets/admin/img/uploads_slider/";
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=books", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  //echo "Connected successfully";
-} catch (PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-}
-
-$stmt = $conn->query("SELECT * FROM slider");
-
-$sliders = $stmt->fetchAll();
-// print_r($sliders);
-
-
-
-
-
-
-
-
-
-
-
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-// $weebpathslider = 'http://localhost:/project/public/assets/admin/img/uploads_slider/';
-
-
-
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=books", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  //   echo "Connected successfully";
-} catch (PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-}
-
-
-// $data = [
-//     'name' => $name,
-//     'surname' => $surname,
-//     'sex' => $sex,
-// ];
-// $sql = "INSERT INTO users (name, surname, sex) VALUES (:name, :surname, :sex)";
-// $stmt= $pdo->prepare($sql);
-// $stmt->execute($data);
-
-$stmt = $conn->query("SELECT * FROM categorylists");
-$categories = $stmt->fetchAll();
-// print_r($categories);
-
-
-
-?>
+include_once("../vendor/autoload.php");
+use rudhro\Allfontend\Allfontend;
+  $allfontend = new Allfontend;
+  // slider list
+  $sliders = $allfontend->sliderpart();
+  // category list
+ $categories = $allfontend->categorylist();
+ $weebpathslider = "http://localhost:85/project/public/assets/admin/img/uploads_slider/";
+ ?>
 
 
 
